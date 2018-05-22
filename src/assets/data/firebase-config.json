@@ -1,0 +1,8 @@
+{
+    "apiKey": "AIzaSyC1Y7bWoMad7xCYu61Y4RDORMc4jLF6zxI",
+    "authDomain": "icon-finder.firebaseapp.com",
+    "databaseURL": "https://icon-finder.firebaseio.com",
+    "projectId": "icon-finder",
+    "storageBucket": "icon-finder.appspot.com",
+    "messagingSenderId": "774969556834"
+}

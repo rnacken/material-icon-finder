@@ -1,0 +1,35 @@
+.icon-details__icon-bubble {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: white;
+    margin: 0 auto;
+
+    > i.material-icons {
+        font-size: 100px;
+        margin: 0 auto;
+    }
+}
+
+.icon-details__name {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.icon-details__html-code {
+    margin: 0;
+    font-size: 0.8em;
+
+    > span {
+        text-transform: uppercase;
+        font-style: italic;
+    }
+
+    .html-code-copy-btn {
+        font-size: 14px;
+        vertical-align: text-bottom;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+}

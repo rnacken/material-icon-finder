@@ -1,0 +1,19 @@
+.icon-item {
+    text-align: center;
+    cursor: pointer;
+
+    .icon-item__name {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        margin-top: 4px;
+        margin-bottom: 20px;
+        font-size: 0.9em;
+    }
+
+    .material-icons.icon-item__icon {
+        font-size: 40px;
+        margin-top: 20px;
+    }
+
+}

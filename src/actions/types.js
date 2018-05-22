@@ -1,0 +1,7 @@
+
+export const GET_ICONS = 'GET_ICONS';
+export const SELECT_ICON = 'SELECT_ICON';
+export const DESELECT_ICON = 'DESELECT_ICON';
+export const UPDATE_ACTIVE_ICONS = 'UPDATE_ACTIVE_ICONS';
+export const UPDATE_SEARCH_HISTORY = 'UPDATE_SEARCH_HISTORY';
+export const ADD_ICON_TAG = 'ADD_ICON_TAG';

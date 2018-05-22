@@ -1,0 +1,89 @@
+@import '../../assets/styles/vars.scss';
+
+.icon-panel {
+    position: fixed;
+    z-index: 1;
+    top: 0; right: 0;
+    height: 100%;
+    overflow: auto;
+    width: 500px;
+    max-width: 90%;
+    transform: translate(100%, 0);
+    transition: transform 200ms;
+
+    .icon-panel__section {
+        background-color: rgb(252, 252, 252);
+        padding: 20px;
+    }
+    .icon-panel__section-divider {
+        height: 1px;
+        background-color: lightgrey;
+    }
+}
+.icon-panel__input-fieldset {
+    display: flex;
+}
+.icon-panel__new-tag {
+    position: relative;
+    flex: 1;
+    margin-top: 0;
+
+    .icon-panel__new-tag__input {
+        padding-right: 40px;
+        margin-top: 0;
+    }
+
+    .icon-panel__new-tag__add-btn {
+        position: relative;
+        top: 0;
+        right: 0;
+    }
+}
+.icon-panel__add-btn {
+    flex: 0 0 40px;
+}
+
+.icon-panel__header {
+    padding: 2em 0 1em;
+    text-align: center;
+}
+.icon-panel__header__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 32px;
+}
+
+.icon-tag {
+    .icon-tag__close-btn {
+        cursor: pointer;
+        float: right;
+        font-size: 16px;
+        line-height: 32px;
+        padding-left: 8px;
+    }
+}
+
+.icon-tag--show-all {
+    cursor: pointer;
+}
+
+.suggested-tag {
+    background-color: transparent;
+    cursor: pointer;
+    padding: 0 10px;
+
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.icon-panel__section--instructions {
+    > p, > code { font-size: 0.8em; }
+}
+
+// expanded
+.app.show-panel .icon-panel {
+    transform: translate(0, 0);
+}
