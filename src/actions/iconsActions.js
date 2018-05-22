@@ -1,3 +1,4 @@
+/* global gtag */
 import { GET_ICONS, SELECT_ICON, DESELECT_ICON, UPDATE_ACTIVE_ICONS, UPDATE_SEARCH_HISTORY } from './types';
 import { database } from '../firebase';
 
@@ -36,6 +37,11 @@ export const getIcons = () => dispatch => {
 }
 
 export const selectIcon = (selectedIcon) => dispatch => {
+    // send ga event
+    gtag('event', 'Icon', {
+        'event_category': 'click',
+        'event_label': selectedIcon.name
+    });
     dispatch({
         type: SELECT_ICON,
         payload: selectedIcon,
@@ -57,6 +63,10 @@ export const updateActiveIcons = (activeIcons) => dispatch => {
 }
 
 export const updateSearchHistory = (searchHistory) => dispatch => {
+    // send ga event
+    gtag('event', 'search', {
+        'search_term': searchHistory[0] || ''
+    });
     dispatch({
         type: UPDATE_SEARCH_HISTORY,
         payload: searchHistory,
