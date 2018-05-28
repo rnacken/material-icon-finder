@@ -5,7 +5,6 @@ import { deselectIcon, addIconTag, deleteTag } from './../../actions/iconsAction
 import IconDetails from './IconDetails/IconDetails';
 import MaterializeCss from 'materialize-css';
 
-import 'material-design-icons';
 import './IconPanel.css';
 
 class IconPanel extends Component {
