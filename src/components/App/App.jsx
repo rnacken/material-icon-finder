@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { deselectIcon } from './../../actions/iconsActions';
-import Searchbar from './../Searchbar/Searchbar';
-import Icons from './../Icons/Icons';
-import IconPanel from './../IconPanel/IconPanel';
+import { deselectIcon } from './../../actions/iconsActions.js';
+import Searchbar from './../Searchbar/Searchbar.jsx';
+import Icons from './../Icons/Icons.jsx';
+import IconPanel from './../IconPanel/IconPanel.jsx';
 
 import utils from './../../utils';
 
@@ -42,7 +42,6 @@ class App extends Component {
 
   checkFixedSearchbar() {
     const marginOffset = 80;
-    console.log(window.scrollY);
     if (window.scrollY >= this.headerHeight - marginOffset) {
       this.headerFixed = true;
       this.setState({

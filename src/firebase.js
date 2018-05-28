@@ -4,4 +4,5 @@ import config from './assets/data/firebase-config.json';
 
 firebase.initializeApp(config);
 
-export const database = firebase.database().ref('icons/');
+const database = firebase.database().ref('icons/');
+export default database;

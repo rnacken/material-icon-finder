@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { deselectIcon, addIconTag, deleteTag } from './../../actions/iconsActions';
-import IconDetails from './IconDetails/IconDetails';
+import IconDetails from './IconDetails/IconDetails.jsx';
 import MaterializeCss from 'materialize-css';
 
 import './IconPanel.css';
