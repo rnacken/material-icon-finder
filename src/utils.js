@@ -2,8 +2,7 @@ import 'promise-polyfill/src/polyfill';
 import 'whatwg-fetch';
 
 function xhrFetch(url, options = {}) {
-	console.log('fetch', url);
-	return fetch(url, options);
+  return fetch(url, options);
 }
 
 // Returns a function, that, as long as it continues to be invoked, will not
@@ -11,50 +10,51 @@ function xhrFetch(url, options = {}) {
 // N milliseconds. If `immediate` is passed, trigger the function on the
 // leading edge, instead of the trailing.
 function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
+  let timeout;
+  return function () {
+    const context = this;
+    const args = arguments;
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
 }
 
 // match tag
 function matchTag(query, tag) {
-	// needs to be 2 strings
-	if (typeof query === 'string' && typeof tag === 'string') {
-		const queryClean = query.replace(/[\W_]+/g,"").toLowerCase();
-		const tagClean = tag.replace(/[\W_]+/g,"").toLowerCase();
-		return tagClean.indexOf(queryClean) > -1;
-	}
-	return false;
+  // needs to be 2 strings
+  if (typeof query === 'string' && typeof tag === 'string') {
+    const queryClean = query.replace(/[\W_]+/g, '').toLowerCase();
+    const tagClean = tag.replace(/[\W_]+/g, '').toLowerCase();
+    return tagClean.indexOf(queryClean) > -1;
+  }
+  return false;
 }
 
 // update an object in an array
 function updateObjectInArray(array, action) {
-    return array.map( (item, index) => {
-        if(index !== action.index) {
-            // This isn't the item we care about - keep it as-is
-            return item;
-        }
+  return array.map((item, index) => {
+    if (index !== action.index) {
+      // This isn't the item we care about - keep it as-is
+      return item;
+    }
 
-        // Otherwise, this is the one we want - return an updated value
-        return {
-            ...item,
-            ...action.item
-        };
-    });
+    // Otherwise, this is the one we want - return an updated value
+    return {
+      ...item,
+      ...action.item,
+    };
+  });
 }
 
 export default {
-	xhrFetch,
-    debounce,
-	matchTag,
-	updateObjectInArray,
+  xhrFetch,
+  debounce,
+  matchTag,
+  updateObjectInArray,
 };
