@@ -28,7 +28,7 @@ class IconPanel extends Component {
     // scroll to top on update, unless newTag or showingallTags is updated
     let tagsDiff = 0;
     if (prevProps.selectedIcon && this.props.selectedIcon) {
-      tagsDiff = Object.keys(this.props.selectedIcon.tags).length - Object.keys(prevProps.selectedIcon.tags).length;
+      tagsDiff = Object.keys(this.props.selectedIcon.tags || []).length - Object.keys(prevProps.selectedIcon.tags || []).length;
     }
     if (prevState.newTag === this.state.newTag
             && prevState.showingAllTags === this.state.showingAllTags
@@ -62,7 +62,7 @@ class IconPanel extends Component {
   submitNewTag(e) {
     e.preventDefault();
     const tag = this.state.newTag.toLowerCase().trim();
-    if (!Object.keys(this.props.selectedIcon.tags).find(key => this.props.selectedIcon.tags[key] === tag)) {
+    if (!Object.keys(this.props.selectedIcon.tags || []).find(key => this.props.selectedIcon.tags[key] === tag)) {
       this.props.addIconTag(this.props.selectedIcon, tag);
       const newAddedTags = this.state.addedTags;
       newAddedTags.push({
@@ -100,7 +100,7 @@ class IconPanel extends Component {
 
   getTagSuggestions() {
     let tagSuggestions = this.props.searchHistory.reduce((total, suggestedTag) => {
-      const tagExistsOnIcon = Object.keys(this.props.selectedIcon.tags).find(iconTagKey =>
+      const tagExistsOnIcon = Object.keys(this.props.selectedIcon.tags || []).find(iconTagKey =>
         this.props.selectedIcon.tags[iconTagKey].toLowerCase().trim() === suggestedTag.toLowerCase().trim());
       if (!tagExistsOnIcon) {
         total.push(suggestedTag.toLowerCase().trim());
@@ -118,7 +118,7 @@ class IconPanel extends Component {
   }
 
   getIconTags() {
-    const iconTags = Object.keys(this.props.selectedIcon.tags).reverse().map((tagKey, i) => {
+    const iconTags = Object.keys(this.props.selectedIcon.tags || []).reverse().map((tagKey, i) => {
       if (this.state.showingAllTags || i < 10) {
         // check if user added this tag
         const tagAddedByUser = (this.state.addedTags.find(tagObj => (this.props.selectedIcon.name === tagObj.icon.name
@@ -130,8 +130,8 @@ class IconPanel extends Component {
       }
       return null;
     });
-    if (!this.state.showingAllTags && Object.keys(this.props.selectedIcon.tags).length > 10) {
-      iconTags.push(<div className="chip icon-tag icon-tag--show-all lime lighten-2" onClick={this.showAllTags.bind(this)} key="more-icons-btn">{Object.keys(this.props.selectedIcon.tags).length - 10}&nbsp;more...</div>);
+    if (!this.state.showingAllTags && Object.keys(this.props.selectedIcon.tags || []).length > 10) {
+      iconTags.push(<div className="chip icon-tag icon-tag--show-all lime lighten-2" onClick={this.showAllTags.bind(this)} key="more-icons-btn">{Object.keys(this.props.selectedIcon.tags || []).length - 10}&nbsp;more...</div>);
     }
     return iconTags;
   }
